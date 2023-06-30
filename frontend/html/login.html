@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../CSS/shared.css" />
+    <link rel="stylesheet" href="../CSS/login-registreren.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Login</title>
+    <script src="../components/header.js" type="text/javascript" defer></script>
+    <script src="../components/navbar.js" type="text/javascript" defer></script>
+    <script src="../components/footer.js" type="text/javascript" defer></script>
+    <script src="../components/login.js" type="text/javascript" defer></script>
+  </head>
+  <body>
+    <header-component></header-component>
+
+    <navbar-component></navbar-component>
+
+    <main>
+      <form class="login-form">
+        <h2 class="middle" id="status">Login</h2>
+        <input class="left" type="text" id="email" placeholder="E-mailadres" />
+        <input
+          class="right"
+          type="password"
+          id="password"
+          placeholder="Wachtwoord"
+        />
+        <button id="login">Login</button>
+        <p class="message">
+          Nog geen account?
+          <a href="registreren.html">Maak hier een account aan</a>
+        </p>
+      </form>
+    </main>
+
+    <footer-component></footer-component>
+  </body>
+</html>

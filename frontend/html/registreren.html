@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../CSS/shared.css" />
+    <link rel="stylesheet" href="../CSS/login-registreren.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Registreren</title>
+    <script src="../components/header.js" type="text/javascript" defer></script>
+    <script src="../components/navbar.js" type="text/javascript" defer></script>
+    <script src="../components/footer.js" type="text/javascript" defer></script>
+    <script
+      src="../components/registreren.js"
+      type="text/javascript"
+      defer
+    ></script>
+  </head>
+  <body>
+    <header-component></header-component>
+
+    <navbar-component></navbar-component>
+
+    <main>
+      <form class="register-form">
+        <h2 class="middle">Registreren</h2>
+        <input class="left" type="text" id="email" placeholder="E-mailadres" />
+        <input
+          class="right"
+          type="text"
+          id="phone_number"
+          placeholder="Telefoonnummer"
+        />
+        <input
+          class="left"
+          type="password"
+          id="password1"
+          placeholder="Wachtwoord"
+        />
+        <input
+          class="right"
+          type="password"
+          id="password2"
+          placeholder="Herhaal wachtwoord"
+        />
+        <input
+          class="left"
+          type="text"
+          id="first_name"
+          placeholder="Voornaam"
+        />
+        <input
+          class="right"
+          type="text"
+          id="last_name"
+          placeholder="Achternaam"
+        />
+        <input class="left" type="text" id="address" placeholder="Adres" />
+        <input class="right" type="text" id="zip_code" placeholder="Postcode" />
+        <input class="middle" type="text" id="state" placeholder="Provincie" />
+        <input class="middle" type="text" id="city" placeholder="Woonplaats" />
+        <input class="middle" type="text" id="country" placeholder="Land" />
+        <button id="registreren">Account registreren</button>
+        <p class="message">
+          Heeft u al een account? <a href="login.html">Log hier in</a>
+        </p>
+      </form>
+    </main>
+
+    <footer-component></footer-component>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+main {
+  display: grid;
+  /* grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr; */
+  grid-template-areas:
+    "titel titel"
+    "afbeelding prijs"
+    "afbeelding bestel-knop"
+    "beschrijving beschrijving";
+  grid-gap: 1rem;
+  margin: 1rem;
+}
+
+.titel {
+  grid-area: titel;
+  margin: 5px;
+}
+
+.afbeelding {
+  grid-area: afbeelding;
+}
+
+.prijs {
+  grid-area: prijs;
+  margin: 0;
+}
+
+.bestel-knop {
+  grid-area: bestel-knop;
+  max-width: 300px;
+  max-height: 100px;
+  outline: 0;
+  background: #3cff00;
+  border: 0;
+  padding: 15px;
+  color: black;
+  font-size: 40px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.bestel-knop:hover,
+.bestel-knop:active,
+.bestel-knop:focus {
+  background: #3f8d00;
+  color: white;
+}
+
+.beschrijving {
+  grid-area: beschrijving;
+  margin-left: 5px;
+  max-width: 60%;
+}
+
+@media screen and (max-width: 800px) {
+  main {
+    grid-template-areas:
+      "titel titel"
+      "afbeelding afbeelding"
+      "prijs bestel-knop"
+      "beschrijving beschrijving";
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .beschrijving {
+    max-width: 100%;
+    margin-right: 5px;
+  }
+}
