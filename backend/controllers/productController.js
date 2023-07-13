@@ -1,8 +1,8 @@
-import dataAcces from "../db/dataAcces.js";
+import dataAccess from "../db/dataAccess.js";
 let products = {};
 
-function getProducts(request, response) {
-  products = dataAcces.selectAllQuery("PRODUCTS");
+function getAllProducts(response) {
+  products = dataAccess.getAllProducts();
   if (products) {
     response.status(200);
     response.json(products);
@@ -12,19 +12,8 @@ function getProducts(request, response) {
   }
 }
 
-function getNameProducts(request, response) {
-  products = dataAcces.selectQuery("PRODUCT_NAME", request.params.product_name);
-  if (products) {
-    response.status(200);
-    response.json(products);
-  } else {
-    response.status(404);
-    response.json();
-  }
-}
-
-function getIdProducts(request, response) {
-  products = dataAcces.selectQuery("PRODUCT_ID", request.params.product_id);
+function getProductsByName(request, response) {
+  products = dataAccess.getProductsByName(request.params.product_name);
   if (products) {
     response.status(200);
     response.json(products);
@@ -34,8 +23,8 @@ function getIdProducts(request, response) {
   }
 }
 
-function getCategoryProducts(request, response) {
-  products = dataAcces.selectQuery("CATEGORY_ID", request.params.category_id);
+function getProductsById(request, response) {
+  products = dataAccess.getProductsById(request.params.product_id);
   if (products) {
     response.status(200);
     response.json(products);
@@ -45,11 +34,8 @@ function getCategoryProducts(request, response) {
   }
 }
 
-function getNameCategory(request, response) {
-  products = dataAcces.selectQuery(
-    "CATEGORY_NAME",
-    request.params.category_name
-  );
+function getProductsByCategory(request, response) {
+  products = dataAccess.getProductsByCategory(request.params.category_name);
   if (products) {
     response.status(200);
     response.json(products);
@@ -59,12 +45,11 @@ function getNameCategory(request, response) {
   }
 }
 
-const itemController = {
-  getProducts: getProducts,
-  getNameProducts: getNameProducts,
-  getIdProducts: getIdProducts,
-  getCategoryProducts: getCategoryProducts,
-  getNameCategory: getNameCategory,
+const productController = {
+  getAllProducts: getAllProducts,
+  getProductsByName: getProductsByName,
+  getProductsById: getProductsById,
+  getProductsByCategory: getProductsByCategory,
 };
 
-export default itemController;
+export default productController;

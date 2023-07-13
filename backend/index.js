@@ -12,6 +12,6 @@ app.use(express.json());
 app.use("/api/products", productRouter);
 app.use("/api/login", loginRouter);
 
-dataAccess.initializeDatabase("./db/database.sqlite");
+dataAccess.initializeDatabase();
 
 app.listen(3000);

@@ -1,4 +1,4 @@
-import dataAcces from "../db/dataAcces.js";
+import dataAccess from "../db/dataAccess.js";
 
 let classes = {};
 
@@ -14,7 +14,7 @@ function postLogin(request, response) {
   const state = request.body.state;
   const zip_code = request.body.zip_code;
   const country = request.body.country;
-  classes = dataAcces.insertQuery3Params(
+  classes = dataAccess.insertQuery3Params(
     "customer",
     first_name,
     last_name,
@@ -37,7 +37,7 @@ function postLogin(request, response) {
 }
 
 function getLogin(request, response) {
-  classes = dataAcces.selectQuery2Params(
+  classes = dataAccess.selectQuery2Params(
     "customer",
     request.params.email,
     request.params.password
@@ -55,7 +55,7 @@ function getLogin(request, response) {
 
 function putLogin(request, response) {
   console.log(request.params);
-  classes = dataAcces.updateQuery6Params(
+  classes = dataAccess.updateQuery6Params(
     "customer",
     request.params.first_name,
     request.params.last_name,
@@ -78,7 +78,7 @@ function putLogin(request, response) {
 }
 
 function deleteLogin(request, response) {
-  classes = dataAcces.DeleteQuery2Params(
+  classes = dataAccess.DeleteQuery2Params(
     "customer",
     request.params.email,
     request.params.password

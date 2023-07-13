@@ -1,5 +1,6 @@
 // Hier staan de SQL statements die gebruikt zijn om de tabellen aan te maken.
 // Deze staan hier alleen voor eigen gebruik, mocht er later iets mis gaan met de database.
+// De queries hier worden dus verder niet gebruikt in de code.
 
 CREATE TABLE IF NOT EXISTS customer (
         customer_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,

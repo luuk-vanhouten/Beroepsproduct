@@ -1,5 +1,6 @@
 // Hier staan de SQL statements die gebruikt zijn voor het vullen van de database.
 // Deze staan hier alleen voor eigen gebruik, mocht er later iets mis gaan met de database.
+// De queries hier worden dus verder niet gebruikt in de code.
 
 INSERT INTO customer (first_name, last_name, email, phone_number, address, city, state, zip_code, country) 
 VALUES 
