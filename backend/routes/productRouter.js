@@ -5,12 +5,12 @@ const { getProducts, getNameProducts, getIdProducts } = itemController;
 const { getCategoryProducts, getNameCategory } = itemController;
 
 const router = express.Router();
-let classes = {};
+let products = {};
 
 router.get("/", getProducts);
-router.get("/category/:category_id", getCategoryProducts);
-router.get("/category/:category_name", getNameCategory);
-router.get("/product/:product_id", getIdProducts);
-router.get("/product/:product_name", getNameProducts);
+router.get("/:name", getNameProducts);
+router.get("/:product_id", getIdProducts);
+router.get("/:category_id", getCategoryProducts);
+router.get("/:category_name", getNameCategory);
 
 export default router;

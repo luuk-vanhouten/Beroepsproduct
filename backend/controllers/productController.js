@@ -1,22 +1,22 @@
 import dataAcces from "../db/dataAcces.js";
-let classes = {};
+let products = {};
 
 function getProducts(request, response) {
-  classes = dataAcces.selectQuery0Params("product");
-  if (classes) {
+  products = dataAcces.selectAllQuery("PRODUCTS");
+  if (products) {
     response.status(200);
-    response.json(classes);
+    response.json(products);
   } else {
     response.status(404);
-    response.json(classes);
+    response.json(products);
   }
 }
 
 function getNameProducts(request, response) {
-  classes = dataAcces.selectQuery1Param("product", request.params.product_name);
-  if (classes) {
+  products = dataAcces.selectQuery("PRODUCT_NAME", request.params.product_name);
+  if (products) {
     response.status(200);
-    response.json(classes);
+    response.json(products);
   } else {
     response.status(404);
     response.json();
@@ -24,10 +24,10 @@ function getNameProducts(request, response) {
 }
 
 function getIdProducts(request, response) {
-  classes = dataAcces.selectQuery1Param("product", request.params.product_id);
-  if (classes) {
+  products = dataAcces.selectQuery("PRODUCT_ID", request.params.product_id);
+  if (products) {
     response.status(200);
-    response.json(classes);
+    response.json(products);
   } else {
     response.status(404);
     response.json();
@@ -35,10 +35,10 @@ function getIdProducts(request, response) {
 }
 
 function getCategoryProducts(request, response) {
-  classes = dataAcces.selectQuery1Param("category", request.params.category_id);
-  if (classes) {
+  products = dataAcces.selectQuery("CATEGORY_ID", request.params.category_id);
+  if (products) {
     response.status(200);
-    response.json(classes);
+    response.json(products);
   } else {
     response.status(404);
     response.json();
@@ -46,13 +46,13 @@ function getCategoryProducts(request, response) {
 }
 
 function getNameCategory(request, response) {
-  classes = dataAcces.selectQuery1Param(
-    "category",
+  products = dataAcces.selectQuery(
+    "CATEGORY_NAME",
     request.params.category_name
   );
-  if (classes) {
+  if (products) {
     response.status(200);
-    response.json(classes);
+    response.json(products);
   } else {
     response.status(404);
     response.json();
@@ -66,4 +66,5 @@ const itemController = {
   getCategoryProducts: getCategoryProducts,
   getNameCategory: getNameCategory,
 };
+
 export default itemController;

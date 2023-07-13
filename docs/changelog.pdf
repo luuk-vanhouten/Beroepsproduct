@@ -1,0 +1,4 @@
+Queries nu op de juiste manier geimplementeerd. Maak nu geen gebruik meer van vage methodes om de database aan te maken en te vullen.
+dummyData.js verwijderd omdat deze nu overbodig was.
+queries.js aangepast na het veranderen van de manier hoe de database aangemaakt en gevuld wordt.
+dataAccess.js aangepast door overbodige methodes te verwijderen na het aanpassen van de bovengenoemde bestanden.
