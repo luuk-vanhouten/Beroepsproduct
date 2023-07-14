@@ -19,6 +19,17 @@ function registerNewCustomer(first_name, last_name, email, password, phone_numbe
   }
 }
 
+function loginCustomer(email, password) {
+  try {
+    const query = Query("SELECT * FROM customer WHERE email = ? AND password = ?");
+    const result = query.all(email, password);
+    return result;
+  } catch (error) {
+    console.error("An error occurred while executing the select query:", error);
+    return null;
+  }
+}
+
 function deleteCustomer(customer_id) {
   try {
     const query = Query("DELETE FROM customer WHERE customer_id = ?");
@@ -77,6 +88,7 @@ const dataAccess = {
   initializeDatabase: initializeDatabase,
   db: null,
   registerNewCustomer: registerNewCustomer,
+  loginCustomer: loginCustomer,
   deleteCustomer: deleteCustomer,
   getAllProducts: getAllProducts,
   getProductsByName: getProductsByName,

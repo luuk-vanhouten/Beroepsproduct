@@ -12,7 +12,7 @@ document.querySelector("#registreren").addEventListener("click", (event) => {
   let zip_code = document.querySelector("#zip_code").value;
   let country = document.querySelector("#country").value;
 
-  fetch(`http://localhost:3000/api/login/`, {
+  fetch(`http://localhost:3000/api/customer`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

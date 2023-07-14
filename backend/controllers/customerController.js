@@ -2,8 +2,8 @@ import dataAccess from "../db/dataAccess.js";
 
 let classes = {};
 
-function postLogin(request, response) {
-  console.log(request.body);
+function registerCustomer(request, response) {
+  // console.log(request);
   const first_name = request.body.first_name;
   const last_name = request.body.last_name;
   const email = request.body.email;
@@ -14,8 +14,7 @@ function postLogin(request, response) {
   const state = request.body.state;
   const zip_code = request.body.zip_code;
   const country = request.body.country;
-  classes = dataAccess.insertQuery3Params(
-    "customer",
+  classes = dataAccess.registerNewCustomer(
     first_name,
     last_name,
     email,
@@ -32,23 +31,20 @@ function postLogin(request, response) {
     response.json(classes);
   } else {
     response.status(404);
-    response.json({ message: "Ging iets mis" });
+    response.json({ message: "Something went wrong" });
   }
 }
 
-function getLogin(request, response) {
-  classes = dataAccess.selectQuery2Params(
-    "customer",
-    request.params.email,
-    request.params.password
-  );
-  console.log(classes);
+function loginCustomer(request, response) {
+  const email = request.body.email;
+  const password = request.body.password;
+  classes = dataAccess.loginCustomer(email, password);
   if (classes && classes.length > 0) {
     response.status(200);
     response.json("Ingelogd");
+    
   } else {
     response.json("Email of wachtwoord is onjuist");
-
     response.status(404);
   }
 }
@@ -93,8 +89,8 @@ function deleteLogin(request, response) {
 }
 
 const functions = {
-  postLogin: postLogin,
-  getLogin: getLogin,
+  registerCustomer: registerCustomer,
+  loginCustomer: loginCustomer,
   putLogin: putLogin,
   deleteLogin: deleteLogin,
 };
