@@ -111,7 +111,9 @@ function deleteCustomer(customer_id) {
 
 function getAllProducts() {
   try {
-    const query = Query("SELECT * FROM product");
+    const query = Query(
+      "SELECT * FROM product INNER JOIN category ON category.category_id = product.category_id"
+    );
     const result = query.all();
     return result;
   } catch (error) {

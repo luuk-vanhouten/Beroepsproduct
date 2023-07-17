@@ -19,8 +19,9 @@ function fetchProducts() {
       products.forEach((product) => {
         let htmlSegment = `
             <div class="product ">
-              <h3>${product.name}</h3>
+              <h2>${product.name}</h3>
               <img src="${product.image}" height="200px" widht="200px" alt="${product.name}" />
+              <h4>${product.category_name}</h4>
               <p>${product.description}</p>
               <p>€${product.price}</p>
               <button onclick="goToProduct(${product.id})">Bekijk product</button>
