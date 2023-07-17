@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../CSS/shared.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <title>Admin</title>
+    <script src="../components/header.js" type="text/javascript" defer></script>
+    <script src="../components/navbar.js" type="text/javascript" defer></script>
+    <script src="../components/footer.js" type="text/javascript" defer></script>
+    <script src="../js/admin.js" type="text/javascript" defer></script>
+</head>
+
+<body>
+    <header-component></header-component>
+
+    <navbar-component></navbar-component>
+
+
+    <main>
+        <h1>ADMIN USE ONLY!!!</h1>
+        <form id="addProduct" method="post">
+            <h2>Voeg product toe</h2>
+            <input type="text" id="name" placeholder="Productnaam" />
+            <input type="text" id="category_id" placeholder="Categorie nummer" />
+            <input type="text" id="description" placeholder="Beschrijving" />
+            <input type="text" id="price" placeholder="Prijs" />
+            <input type="text" id="image" placeholder="Afbeelding" />
+            <input type="submit" onclick="addProduct()" id="newProduct" value="Voeg product toe" />
+        </form>
+
+        <form id="addCategory" method="post">
+            <h2>Voeg categorie toe</h2>
+            <input type="text" id="category_name" placeholder="Categorie naam" />
+            <input type="submit" onclick="addCategory()" id="newProduct" value="Voeg categorie toe" />
+        </form>
+
+        <form id="updateProduct">
+            <h2>Update product</h2>
+            <input type="text" id="product_id" placeholder="Product ID" />
+            <input type="text" id="name" placeholder="Productnaam" />
+            <input type="text" id="category_id" placeholder="Categorie nummer" />
+            <input type="text" id="description" placeholder="Beschrijving" />
+            <input type="text" id="price" placeholder="Prijs" />
+            <input type="text" id="image" placeholder="Afbeelding" />
+            <input type="submit" onclick="updateProduct()" id="newProduct" value="Update product" />
+        </form>
+
+        <form id="updateCategory">
+            <h2>Update categorie</h2>
+            <input type="text" id="category_id" placeholder="Categorie ID" />
+            <input type="text" id="category_name" placeholder="Categorie naam" />
+            <input type="submit" onclick="updateCategory()" id="newProduct" value="Update categorie" />
+        </form>
+
+        <form id="updateCustomer">
+            <h2>Update customer</h2>
+            <input type="text" id="customer_id" placeholder="Customer ID" />
+            <input type="text" id="first_name" placeholder="Voornaam" />
+            <input type="text" id="last_name" placeholder="Achternaam" />
+            <input type="text" id="email" placeholder="E-mailadres" />
+            <input type="text" id="password" placeholder="Wachtwoord" />
+            <input type="text" id="address" placeholder="Adres" />
+            <input type="text" id="city" placeholder="Stad" />
+            <input type="text" id="postal_code" placeholder="Postcode" />
+            <input type="text" id="country" placeholder="Land" />
+            <input type="submit" onclick="updateCustomer()" id="newProduct" value="Update customer" />
+        </form>
+
+        <form id="deleteProduct">
+            <h2>Verwijder product</h2>
+            <input type="text" id="product_id" placeholder="Product ID" />
+            <input type="submit" onclick="deleteProduct()" id="byeProduct" value="Verwijder product" />
+        </form>
+
+        <form id="deleteCategory">
+            <h2>Verwijder categorie</h2>
+            <input type="text" id="category_id" placeholder="Categorie ID" />
+            <input type="submit" onclick="deleteCategory()" id="byeCategory" value="Verwijder categorie" />
+        </form>
+
+        <form id="deleteCustomer">
+            <h2>Verwijder customer</h2>
+            <input type="text" id="customer_id" placeholder="Customer ID" />
+            <input type="submit" onclick="deleteCustomer()" id="byeCustomer" value="Verwijder customer" />
+        </form>
+    </main>
+
+    <footer-component></footer-component>
+</body>
+
+</html>

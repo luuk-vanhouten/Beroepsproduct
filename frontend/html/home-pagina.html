@@ -1,99 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../CSS/shared.css" />
-    <link rel="stylesheet" href="../CSS/home-pagina.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <title>Home pagina</title>
-    <script src="../components/header.js" type="text/javascript" defer></script>
-    <script src="../components/navbar.js" type="text/javascript" defer></script>
-    <script src="../components/footer.js" type="text/javascript" defer></script>
-  </head>
 
-  <body>
-    <header-component></header-component>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../CSS/shared.css" />
+  <link rel="stylesheet" href="../CSS/home-pagina.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <title>Home pagina</title>
+  <script src="../components/header.js" type="text/javascript" defer></script>
+  <script src="../components/navbar.js" type="text/javascript" defer></script>
+  <script src="../components/footer.js" type="text/javascript" defer></script>
+  <script src="../js/product-tonen.js" type="text/javascript" defer></script>
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      fetchProducts();
+    });
+  </script>
+</head>
 
-    <navbar-component></navbar-component>
+<body>
+  <header-component></header-component>
 
-    <main>
-      <h1>Dikke kat</h1>
-      <div class="w3-content w3-display-container" style="max-width: 800px">
-        <img
-          class="mySlides"
-          src="../images/workshop.jpg"
-          style="width: 100%"
-        />
-        <img
-          class="mySlides"
-          src="../images/onderdelen.jpg"
-          style="width: 100%"
-        />
-        <img class="mySlides" src="../images/auto2.jpg" style="width: 100%" />
-        <div
-          class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle"
-          style="width: 100%"
-        >
-          <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">
-            &#10094;
-          </div>
-          <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">
-            &#10095;
-          </div>
-          <span
-            class="w3-badge demo w3-border w3-transparent w3-hover-white"
-            onclick="currentDiv(1)"
-          ></span>
-          <span
-            class="w3-badge demo w3-border w3-transparent w3-hover-white"
-            onclick="currentDiv(2)"
-          ></span>
-          <span
-            class="w3-badge demo w3-border w3-transparent w3-hover-white"
-            onclick="currentDiv(3)"
-          ></span>
-        </div>
-      </div>
+  <navbar-component></navbar-component>
 
-      <script>
-        var slideIndex = 1;
-        showDivs(slideIndex);
+  <main>
+    <h1>Welkom bij PartsOnline!</h1>
+    <div class="wrapper">
+      <section class="productSec"></section>
+    </div>
+  </main>
 
-        function plusDivs(n) {
-          showDivs((slideIndex += n));
-        }
+  <footer-component></footer-component>
+</body>
 
-        function currentDiv(n) {
-          showDivs((slideIndex = n));
-        }
-
-        function showDivs(n) {
-          var i;
-          var x = document.getElementsByClassName("mySlides");
-          var dots = document.getElementsByClassName("demo");
-          if (n > x.length) {
-            slideIndex = 1;
-          }
-          if (n < 1) {
-            slideIndex = x.length;
-          }
-          for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-          }
-          for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" w3-white", "");
-          }
-          x[slideIndex - 1].style.display = "block";
-          dots[slideIndex - 1].className += " w3-white";
-        }
-      </script>
-    </main>
-
-    <footer-component></footer-component>
-  </body>
 </html>

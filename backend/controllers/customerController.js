@@ -14,7 +14,7 @@ function registerCustomer(request, response) {
   const state = request.body.state;
   const zip_code = request.body.zip_code;
   const country = request.body.country;
-  classes = dataAccess.registerNewCustomer(
+  const customerAdd = dataAccess.registerNewCustomer(
     first_name,
     last_name,
     email,
@@ -26,73 +26,49 @@ function registerCustomer(request, response) {
     zip_code,
     country
   );
-  if (classes) {
-    response.status(200);
-    response.json(classes);
-  } else {
-    response.status(404);
-    response.json({ message: "Something went wrong" });
-  }
+  response.json(customerAdd);
 }
 
 function loginCustomer(request, response) {
-  const email = request.body.email;
-  const password = request.body.password;
-  classes = dataAccess.loginCustomer(email, password);
+  classes = dataAccess.loginCustomer(request.body.email, request.body.password);
   if (classes && classes.length > 0) {
     response.status(200);
     response.json("Ingelogd");
-    
   } else {
     response.json("Email of wachtwoord is onjuist");
     response.status(404);
   }
 }
 
-function putLogin(request, response) {
-  console.log(request.params);
-  classes = dataAccess.updateQuery6Params(
-    "customer",
-    request.params.first_name,
-    request.params.last_name,
-    request.params.email,
-    request.params.password,
-    request.params.phone_number,
-    request.params.address,
-    request.params.city,
-    request.params.state,
-    request.params.zip_code,
-    request.params.country
+function updateCustomer(request, response) {
+  const customerUpdate = dataAccess.updateCustomer(
+    request.body.customer_id,
+    request.body.first_name,
+    request.body.last_name,
+    request.body.email,
+    request.body.password,
+    request.body.phone_number,
+    request.body.address,
+    request.body.city,
+    request.body.state,
+    request.body.zip_code,
+    request.body.country
   );
-  if (classes) {
-    response.status(200);
-    response.json(classes);
-  } else {
-    response.status(404);
-    response.json();
-  }
+  response.status(200);
+  response.json(customerUpdate);
 }
 
-function deleteLogin(request, response) {
-  classes = dataAccess.DeleteQuery2Params(
-    "customer",
-    request.params.email,
-    request.params.password
-  );
-  if (classes) {
-    response.status(200);
-    response.json(classes);
-  } else {
-    response.status(404);
-    response.json();
-  }
+function deleteCustomer(request, response) {
+  const customerDel = dataAccess.deleteCustomer(request.params.customer_id);
+  response.status(200);
+  response.json(customerDel);
 }
 
 const functions = {
   registerCustomer: registerCustomer,
   loginCustomer: loginCustomer,
-  putLogin: putLogin,
-  deleteLogin: deleteLogin,
+  updateCustomer: updateCustomer,
+  deleteCustomer: deleteCustomer,
 };
 
 export default functions;

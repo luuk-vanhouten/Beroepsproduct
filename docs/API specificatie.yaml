@@ -1,0 +1,406 @@
+openapi: 3.0.0
+info:
+  title: API Specificatie voor PartsOnline
+  version: 1.0.0
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/LUUKVANHOUTEN01/ohfhcgxdf/1.0.0
+  - url: http://localhost:3000
+paths:
+  /api/products/add:
+    post:
+      summary: Add a new product
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NewProduct"
+      responses:
+        "200":
+          description: Product added successfully
+
+  /api/customer/login:
+    post:
+      summary: Login a customer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LoginCredentials"
+      responses:
+        "200":
+          description: Customer logged in successfully
+
+  /api/customer/register:
+    post:
+      summary: Register a new customer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NewCustomer"
+      responses:
+        "200":
+          description: Customer registered successfully
+
+  /api/products/add_category:
+    post:
+      summary: Add a new category
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NewCategory"
+      responses:
+        "200":
+          description: Category added successfully
+
+  /api/customer/update:
+    put:
+      summary: Update a customer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateCustomer"
+      responses:
+        "200":
+          description: Customer updated successfully
+
+  /api/products/update:
+    put:
+      summary: Update a product
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateProduct"
+      responses:
+        "200":
+          description: Product updated successfully
+
+  /api/products/update_category:
+    put:
+      summary: Update a category
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateCategory"
+      responses:
+        "200":
+          description: Category updated successfully
+
+  /api/products/all:
+    get:
+      summary: Get all products
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Product"
+        "404":
+          description: No products found
+
+  /api/products/name/{name}:
+    get:
+      summary: Get products by name
+      parameters:
+        - name: name
+          in: path
+          description: The name of the product to search for
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Product"
+        "404":
+          description: No products found by name
+
+  /api/products/id/{id}:
+    get:
+      summary: Get a product by ID
+      parameters:
+        - name: id
+          in: path
+          description: The ID of the product to retrieve
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Product"
+        "404":
+          description: Product not found by ID
+
+  /api/products/category/{category_name}:
+    get:
+      summary: Get products by category
+      parameters:
+        - name: category_name
+          in: path
+          description: The name of the category to search for products
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Product"
+        "404":
+          description: No products found by category
+
+  /api/products/delete/{product_id}:
+    delete:
+      summary: Delete a product
+      parameters:
+        - name: product_id
+          in: path
+          description: The ID of the product to delete
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Product deleted successfully
+
+  /api/products/delete_category/{category_id}:
+    delete:
+      summary: Delete a category
+      parameters:
+        - name: category_id
+          in: path
+          description: The ID of the category to delete
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Category deleted successfully
+
+  /api/customer/delete/{customer_id}:
+    delete:
+      summary: Delete a customer
+      parameters:
+        - name: customer_id
+          in: path
+          description: The ID of the customer to delete
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Customer deleted successfully
+
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        price:
+          type: number
+        category_id:
+          type: integer
+      required:
+        - name
+        - description
+        - price
+        - category_id
+
+    NewProduct:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        price:
+          type: number
+        category_id:
+          type: integer
+        image:
+          type: string
+      required:
+        - name
+        - description
+        - price
+        - category_id
+
+    UpdateProduct:
+      type: object
+      properties:
+        product_id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        price:
+          type: number
+        category_id:
+          type: integer
+      required:
+        - product_id
+        - name
+        - description
+        - price
+        - category_id
+
+    DeleteProduct:
+      type: object
+      properties:
+        product_id:
+          type: integer
+      required:
+        - product_id
+
+    NewCategory:
+      type: object
+      properties:
+        category_name:
+          type: string
+      required:
+        - category_name
+
+    UpdateCategory:
+      type: object
+      properties:
+        category_id:
+          type: integer
+        category_name:
+          type: string
+      required:
+        - category_id
+        - category_name
+
+    DeleteCategory:
+      type: object
+      properties:
+        category_id:
+          type: integer
+      required:
+        - category_id
+
+    LoginCredentials:
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      required:
+        - email
+        - password
+
+    NewCustomer:
+      type: object
+      properties:
+        first_name:
+          type: string
+        last_name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        phone_number:
+          type: string
+        address:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zip_code:
+          type: string
+        country:
+          type: string
+      required:
+        - first_name
+        - last_name
+        - email
+        - password
+        - phone_number
+        - address
+        - city
+        - state
+        - zip_code
+        - country
+
+    UpdateCustomer:
+      type: object
+      properties:
+        customer_id:
+          type: integer
+        first_name:
+          type: string
+        last_name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        phone_number:
+          type: string
+        address:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zip_code:
+          type: string
+        country:
+          type: string
+      required:
+        - customer_id
+        - first_name
+        - last_name
+        - email
+        - password
+        - phone_number
+        - address
+        - city
+        - state
+        - zip_code
+        - country
+
+    DeleteCustomer:
+      type: object
+      properties:
+        customer_id:
+          type: integer
+      required:
+        - customer_id

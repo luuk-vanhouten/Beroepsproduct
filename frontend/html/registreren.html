@@ -12,7 +12,7 @@
   <script src="../components/header.js" type="text/javascript" defer></script>
   <script src="../components/navbar.js" type="text/javascript" defer></script>
   <script src="../components/footer.js" type="text/javascript" defer></script>
-  <script src="../components/registreren.js" type="text/javascript" defer></script>
+  <script src="../js/registreren.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -21,7 +21,7 @@
   <navbar-component></navbar-component>
 
   <main>
-    <form class="register-form" action="/register" method="put">
+    <form class="register-form" method="post">
       <h2 class="middle">Registreren</h2>
       <input class="left" type="text" id="email" placeholder="E-mailadres" />
       <input class="right" type="text" id="phone_number" placeholder="Telefoonnummer" />
@@ -34,7 +34,7 @@
       <input class="middle" type="text" id="state" placeholder="Provincie" />
       <input class="middle" type="text" id="city" placeholder="Woonplaats" />
       <input class="middle" type="text" id="country" placeholder="Land" />
-      <input type="submit" id="registreren" value="Account registreren">
+      <button type="submit" id="registreren">Account registreren</button>
       <p class="message">
         Heeft u al een account? <a href="login.html">Log hier in</a>
       </p>

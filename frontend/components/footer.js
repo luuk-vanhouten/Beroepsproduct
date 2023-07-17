@@ -7,9 +7,9 @@ class Footer extends HTMLElement {
     this.innerHTML = `  
       <footer>
       <ul>
-        <li><a href="voorwaarden-pagina.html">Voorwaarden</a></li>
-        <li><a href="over-ons-pagina.html">Over ons</a></li>
-        <li><a href="contact-pagina.html">Contactinfo</a></li>
+        <li><a href="nee.html">Voorwaarden</a></li>
+        <li><a href="nee.html">Over ons</a></li>
+        <li><a href="nee.html">Contactinfo</a></li>
       </ul>
     </footer>
       `;

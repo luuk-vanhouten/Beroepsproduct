@@ -1,8 +1,9 @@
-document.querySelector("#registreren").addEventListener("click", (event) => {
+document.querySelector("#registreren").addEventListener("click", function (event) {
+  console.log("dit lukt nog");
   event.preventDefault();
   console.log("registreren");
   let email = document.querySelector("#email").value;
-  let password = document.querySelector("#password").value;
+  let password = document.querySelector("#password1").value;
   let first_name = document.querySelector("#first_name").value;
   let last_name = document.querySelector("#last_name").value;
   let phone_number = document.querySelector("#phone_number").value;
@@ -12,7 +13,9 @@ document.querySelector("#registreren").addEventListener("click", (event) => {
   let zip_code = document.querySelector("#zip_code").value;
   let country = document.querySelector("#country").value;
 
-  fetch(`http://localhost:3000/api/customer`, {
+  console.log("dit lukt nu ook");
+
+  fetch(`http://localhost:3000/api/customer/registreren`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -34,6 +37,7 @@ document.querySelector("#registreren").addEventListener("click", (event) => {
       if (!response.ok) {
         throw new Error("Registreren is niet gelukt");
       }
+      console.log("It worked!");
       return response.json();
     })
     .then((data) => {

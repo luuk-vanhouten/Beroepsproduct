@@ -1,28 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../CSS/shared.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <title>Zoek pagina</title>
-    <script src="../components/header.js" type="text/javascript" defer></script>
-    <script src="../components/navbar.js" type="text/javascript" defer></script>
-    <script src="../components/footer.js" type="text/javascript" defer></script>
-  </head>
-  <body>
-    <header-component></header-component>
 
-    <navbar-component></navbar-component>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../CSS/shared.css" />
+  <link rel="stylesheet" href="../CSS/zoek-pagina.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <title>Zoek pagina</title>
+  <script src="../components/header.js" type="text/javascript" defer></script>
+  <script src="../components/navbar.js" type="text/javascript" defer></script>
+  <script src="../components/footer.js" type="text/javascript" defer></script>
+  <script src="../js/product-tonen.js" type="text/javascript" defer></script>
+  <script src="../js/zoeken.js" type="text/javascript" defer></script>
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      fetchProducts();
+    });
+  </script>
+</head>
 
-    <main>
-      <h1>Zoek pagina</h1>
-    </main>
+<body>
+  <header-component></header-component>
 
-    <footer-component></footer-component>
-  </body>
+  <navbar-component></navbar-component>
+
+  <main>
+    <h1>Zoek pagina</h1>
+    <div class="search">
+      <input type="text" placeholder="Voer naam product in..." class="form-control" id="product" />
+      <input type="submit" onclick="searchProduct()" value="Zoeken op product naam" class="product-knop"
+        id="product-button" />
+      <input type="text" placeholder="Voer naam categorie in..." class="form-control" id="category" />
+      <input type="submit" onclick="searchCategory()" value="Zoeken op categorie naam" class="categorie-knop"
+        id="category-button" />
+    </div>
+    <section class="productSec"></section>
+  </main>
+
+  <footer-component></footer-component>
+</body>
+
 </html>
